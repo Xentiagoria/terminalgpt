@@ -4,6 +4,22 @@ from openai import OpenAI
 
 client = OpenAI()
 
+prompts = {
+    "kort og præcis": "Du er en hjælpsom assistent, der altid svarer kort og præcist.",
+    "venlig og sjov": "Du er venlig, sjov og bruger emojis i dine svar.",
+    "lærerig": "Du forklarer alt grundigt, som om læseren er nybegynder."
+}
+
+print("Vælg system prompt:")
+for i, key in enumerate(prompts.keys(), 1):
+    print(f"{i}. {key}")
+
+choice = input("Indtast nummer: ")
+selected_prompt = list(prompts.values())[int(choice) - 1]
+
+history = [{"role": "system", "content": selected_prompt}]
+
+
 def chat():
     print("TerminalGPT – interaktiv CLI-chat (CTRL+C for at afslutte)\n")
 
