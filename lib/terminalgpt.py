@@ -20,7 +20,7 @@ def chat():
                 messages=history
             )
 
-            assistant = response.choices[0].message["content"]
+            assistant = response.choices[0].message.content
             print(f"\n{assistant}\n")
 
             history.append({"role": "assistant", "content": assistant})
